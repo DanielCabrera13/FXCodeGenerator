@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="-Infinity" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ToolBar GridPane.valignment="CENTER">
+        <items>
+          <Button fx:id="newButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onNuevoAction" text="Button">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/new-32x32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="abrirButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onAbrirAction" text="Button">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/open-32x32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="guardarButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onGuardarButton" text="Button">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/save-32x32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="generarButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onGenerarAction" text="Button">
+               <graphic>
+                  <ImageView pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/javafile-32x32.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+        </items>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </ToolBar>
+      <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.rowIndex="1">
+         <children>
+            <Label alignment="TOP_LEFT" text="Paquete:" />
+            <TextField fx:id="paqueteText" prefWidth="200.0" HBox.hgrow="NEVER" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <SplitPane dividerPositions="0.25" GridPane.rowIndex="2">
+         <items>
+            <BorderPane>
+               <top>
+                  <HBox alignment="CENTER" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label maxWidth="1.7976931348623157E308" text="Beans:" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="nuevoBeanButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onAnadirAction" text="Button">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/addbean-32x32.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="eliminarBeanButton" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#onEliminarAction" text="Button">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/removebean-32x32.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </top>
+               <center>
+                  <ListView fx:id="beanList" prefHeight="268.0" prefWidth="159.0" BorderPane.alignment="CENTER" />
+               </center>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </BorderPane>
+            <BorderPane fx:id="rightPane">
+               <center>
+                  <VBox fx:id="noBeanPane" alignment="CENTER">
+                     <children>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/noselected-64x64.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="No hay ningún bean seleccionado" />
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </items>
+      </SplitPane>
+   </children>
+</GridPane>
